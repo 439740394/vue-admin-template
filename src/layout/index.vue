@@ -7,12 +7,10 @@
         <navbar />
         <tags-view v-if="needTagsView" />
       </div>
-      <div>
-        <app-main />
-        <el-tooltip placement="top" content="返回顶部">
-          <back-to-top :visibility-height="300" :back-position="50" transition-name="fade" />
-        </el-tooltip>
-      </div>
+      <app-main />
+      <el-tooltip placement="top" content="返回顶部">
+        <back-to-top :visibility-height="300" :back-position="50" transition-name="fade" />
+      </el-tooltip>
       <right-panel v-if="showSettings">
         <settings />
       </right-panel>

@@ -1,4 +1,4 @@
-import { asyncRoutes, constantRoutes } from '@/router'
+import { constantRoutes } from '@/router'
 
 /**
  * Use meta.role to determine if the current user has permission
@@ -35,35 +35,35 @@ export function filterAsyncRoutes(routes, roles) {
 }
 
 const state = {
-  routes: [],
+  routes: constantRoutes,
   addRoutes: []
 }
 
-const mutations = {
-  SET_ROUTES: (state, routes) => {
-    state.addRoutes = routes
-    state.routes = constantRoutes.concat(routes)
-  }
-}
+// const mutations = {
+//   SET_ROUTES: (state, routes) => {
+//     state.addRoutes = routes
+//     state.routes = constantRoutes.concat(routes)
+//   }
+// }
 
-const actions = {
-  generateRoutes({ commit }, roles) {
-    return new Promise(resolve => {
-      let accessedRoutes
-      if (roles.includes('admin')) {
-        accessedRoutes = asyncRoutes || []
-      } else {
-        accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
-      }
-      commit('SET_ROUTES', [])
-      resolve([])
-    })
-  }
-}
+// const actions = {
+//   generateRoutes({ commit }, roles) {
+//     return new Promise(resolve => {
+//       let accessedRoutes
+//       if (roles.includes('admin')) {
+//         accessedRoutes = asyncRoutes || []
+//       } else {
+//         accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
+//       }
+//       commit('SET_ROUTES', [])
+//       resolve([])
+//     })
+//   }
+// }
 
 export default {
   namespaced: true,
-  state,
-  mutations,
-  actions
+  state
+  // mutations,
+  // actions
 }
