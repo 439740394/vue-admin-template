@@ -1,4 +1,5 @@
 # vue-admin-template
+<<<<<<< HEAD
 
 English | [简体中文](./README-zh.md)
 
